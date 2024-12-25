@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'password-manager-page.dart';
+import 'login.dart';
+import 'password-manager-page.dart'; // Keep the PasswordManagerPage import
 
 void main() {
   runApp(const PasswordManagerApp());
@@ -16,7 +17,11 @@ class PasswordManagerApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const PasswordManagerPage(),
+      initialRoute: '/', // Define the initial route
+      routes: {
+        '/': (context) => const LoginPage(), // LoginPage as the initial screen
+        '/home': (context) => const PasswordManagerPage(), // PasswordManagerPage for after login
+      },
     );
   }
 }
